@@ -1,30 +1,13 @@
-
-int x = 200;
-boolean closing = true;
-
+Eye eye1;
 
 
 void setup(){
   size(640, 360);
-  frameRate(20);
-  Eye eye1 = new Eye();
+  eye1 = new Eye();
 }
 
 void draw(){
   background(0);
+  eye1.display();
   
-  if (x > 0 && closing){
-    x -= 10;
-  }
-  if (x <= 0) {
-    closing = false;
-  }
-  
-  if (x < 210 && !closing){
-    x += 10;
-  }
-  
-  if (x >= 210){
-    closing = true;
-  }
 }
