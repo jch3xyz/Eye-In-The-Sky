@@ -5,7 +5,7 @@ SoundFile vivint;
 float z;
 
 void setup() {
-  size(500, 500, P3D);
+  size(1920, 1080, P3D);
   eye = new Eye(width / 2, height / 2, width/8);
   vivint = new SoundFile(this, "Vivint Camera Sound Effect.mp3");
 }
