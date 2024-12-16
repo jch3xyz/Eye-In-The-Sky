@@ -2,10 +2,11 @@ import processing.sound.*;
 
 Eye eye;
 SoundFile vivint;
+float z;
 
 void setup() {
-  size(1080, 1920);
-  eye = new Eye(width / 2, height / 2, width/4);
+  size(500, 500, P3D);
+  eye = new Eye(width / 2, height / 2, width/8);
   vivint = new SoundFile(this, "Vivint Camera Sound Effect.mp3");
 }
 
@@ -29,4 +30,5 @@ void keyPressed() {
 
 void mouseDragged() {
   eye.x = mouseX;
+  eye.tilt = map(mouseX, 0, width, -40, 40);
 }

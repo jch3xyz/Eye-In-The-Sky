@@ -1,5 +1,5 @@
 class Eye {
-  float x, y, radius;
+  float x, y, radius, tilt;
   boolean isBlinking;
   int blinkFrame;
 
@@ -9,9 +9,14 @@ class Eye {
     this.radius = radius;
     this.isBlinking = false;
     this.blinkFrame = 0;
+    this.tilt = 0;
   }
 
   void display() {
+    pushMatrix();
+    translate(x, y); // Move to the eye's center
+    rotateY(radians(tilt));
+    
     // Modulate eye height during blinking
     float eyeHeight = radius;
     if (isBlinking) {
@@ -26,16 +31,19 @@ class Eye {
     fill(255);
     stroke(0);
     strokeWeight(2);
-    ellipse(x, y, radius * 2, eyeHeight);
+    ellipse(0, 0, radius * 2, eyeHeight);
 
     // Draw the iris
     fill(50, 100, 200); // Blueish iris color
-    ellipse(x, y, radius * .75, eyeHeight * 0.75); // Scale iris height proportionally
+    //noFill();
+    ellipse(0, 0, radius * .65, eyeHeight * 0.65); // Scale iris height proportionally
 
     // Draw the pupil
     fill(0);
     noStroke();
-    ellipse(x, y, radius * 0.3, eyeHeight * 0.3); // Scale pupil height proportionally
+    ellipse(0, 0, radius * 0.25, eyeHeight * 0.25); // Scale pupil height proportionally
+   
+    popMatrix(); // Restore the original coordinate system
   }
 
   void blink() {
