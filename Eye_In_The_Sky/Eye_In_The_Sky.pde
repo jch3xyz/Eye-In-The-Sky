@@ -2,10 +2,9 @@ import processing.sound.*;
 
 Eye eye;
 SoundFile vivint;
-float z;
 
 void setup() {
-  size(1920, 1080, P3D);
+  size(800, 800, P3D);
   eye = new Eye(width / 2, height / 2, width/8);
   vivint = new SoundFile(this, "Vivint Camera Sound Effect.mp3");
 }
@@ -15,7 +14,6 @@ void draw() {
   eye.display();
   eye.update();
   
-  //saveFrame("/Users/johnholmes/Documents/GitHub/Eye-In-The-Sky/Eye_In_The_Sky/Captures/1/eye-######.png");
 }
 
 void keyPressed() {
